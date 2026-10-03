@@ -75,6 +75,7 @@ const DashboardOverview = () => {
   const { data: purchaseSummary } = useGetPurchaseSummary()
   console.log('🚀 ~ DashboardOverview ~ purchaseSummary:', purchaseSummary)
   const { data: bankBalanceSummary } = useGetBankAccountBalanceSummary()
+  console.log("🚀 ~ DashboardOverview ~ bankBalanceSummary:", bankBalanceSummary)
 
   const totalAmount = InventoryItems?.data?.reduce((sum: number, item: any) => {
     const qty = Math.max(item.totQty, 0)
