@@ -295,6 +295,12 @@ const OpeningBalance = () => {
                 Opening Amount <ArrowUpDown className="ml-2 h-4 w-4 inline" />
               </TableHead>
               <TableHead
+                onClick={() => handleSort('openingAmount')}
+                className="cursor-pointer"
+              >
+                Type <ArrowUpDown className="ml-2 h-4 w-4 inline" />
+              </TableHead>
+              <TableHead
                 onClick={() => handleSort('createdAt')}
                 className="cursor-pointer"
               >
@@ -327,10 +333,11 @@ const OpeningBalance = () => {
                   <TableCell>{balance.customerName}</TableCell>
                   <TableCell>
                     {balance.bankAccountId
-                      ? `${balance.bankName} - ${balance.accountNumber} - ${balance.bankAccountId}`
+                      ? `${balance.bankName} - ${balance.accountNumber} - ${balance.branch}`
                       : '-'}
                   </TableCell>
                   <TableCell>{formatNumber(balance.openingAmount)}</TableCell>
+                  <TableCell className='capitalize'>{balance.type}</TableCell>
                   <TableCell>
                     {formatDate(new Date(balance.createdAt))}
                   </TableCell>
